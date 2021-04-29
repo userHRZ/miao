@@ -6,27 +6,30 @@
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    p[class="a"]:hover {
+    body > p:first-child{
+      color:red;
+    }
+    p.a:hover {
       color: red;
     }
 
-    p[class="a"]:focus {
+    p.a:focus {
       color: blue;
     }
     
-    p[class="a"]:active {
+    p.a:active {
       color: green;
     }
 
-    p>span {
+    p > span {
       color: red;
     }
 
-    p>span>span {
+    p > span > span {
       color: green;
     }
 
-    p>span>span:last-child {
+    p > span > span:last-child {
       color: blue;
     }
 
@@ -50,28 +53,48 @@
       font-size: 30px;
     }
 
-    div:nth-child(6) ul li:nth-child(n+4):nth-child(-n+7) {
+    div.a ul li:nth-child(n+4):nth-child(-n+7) {
       color: red;
     }
 
-    div:nth-child(9) ul li:nth-child(-n+25) {
+    div.b ul li:nth-child(-n+25) {
       color: red;
     }
 
-    div:nth-child(9) ul li:nth-child(n+65) {
+    div.b ul li:nth-child(n+65) {
       color: green;
     }
 
-    div:nth-child(9) ul li:nth-child(n+35):nth-child(-n+50) {
+    div.b ul li:nth-child(n+35):nth-child(-n+50) {
       color: blue;
     }
+    div.prime {
+      color:red;
+    }
+    div.prime li:first-child{
+      color:green;
+    }
+    div.prime li:nth-child(2n+4){
+      color:cornflowerblue;
+    }
+    div.prime li:nth-child(3n+9){
+      color:cornflowerblue;
+    }
+    div.prime li:nth-child(5n+25){
+      color:cornflowerblue;
+    }
+    div.prime li:nth-child(7n+49){
+      color:cornflowerblue;
+    }
+    div.prime li:nth-child(11n+121){
+      color:cornflowerblue
   </style>
 </head>
 
 <body>
   <p>红色</p>
 
-  <p class="a" tabindex="-1">鼠标悬浮时为红色，按下去时为绿色，获得焦点时为蓝色</p>
+  <p class="a" tabindex="1">鼠标悬浮时为红色，按下去时为绿色，获得焦点时为蓝色</p>
 
   <p class="a c">
     <span>
