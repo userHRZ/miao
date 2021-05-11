@@ -44,7 +44,8 @@
     function a(){ return 8 }
   </code></pre>
   <hr>
-  <ul>
+  <!-- ul下只能有li标签 -->
+  <!-- <ul>
     <li>小学</li>
     <ol>
       <li>一年级</li>
@@ -55,6 +56,23 @@
       <li>二年级</li>
       <li>三年级</li>
     </ol>
+    <li>中学</li>
+    <li>大学</li>
+  </ul> -->
+  <ul>
+    <li>
+      小学
+      <ol>
+        <li>一年级
+          <ol>
+            <li>上学期</li>
+            <li>下学期</li>
+          </ol>
+        </li>
+        <li>二年级</li>
+        <li>三年级</li>
+      </ol>
+    </li>
     <li>中学</li>
     <li>大学</li>
   </ul>
@@ -72,7 +90,7 @@
   <hr>
 
   <h3>Google搜索</h3>
-  <form action="https://www.google.com.hk/" target=_blank>
+  <form action="https://www.google.com/search" target=_blank>
     <input type="text" name="q">
     <input type="text" name="ie" value="utf-8" hidden>
     <input type="text" name="sourceid" value="chorme" hidden>
@@ -82,24 +100,25 @@
 
   <form>个人信息调查表<br>
     <dl>性别</dl>
-    <dd> <label><input type="radio" name="sex" value="male">男</label> <label><input type="radio" name="sex"
+    <dd> <label><input type="radio" name="gender" value="male">男</label> <label><input type="radio" name="gender"
           value="female">女</label><br>
     </dd>
     <label>
+      <!-- 标签里不写汉字 -->
       <dl>年龄</dl>
       <dd><select name="age" id="age">
-          <option value="请选择" hidden>请选择</option>
-          <optgroup label="少年">少年
-            <option value="1岁到8岁">1岁到8岁</option>
-            <option value="8岁到18岁">8岁到18岁</option>
+          <option value="select" hidden>请选择</option>
+          <optgroup label="juvenile">少年
+            <option value="1~8">1岁到8岁</option>
+            <option value="8~18">8岁到18岁</option>
           </optgroup>
-          <optgroup label="青年">青年
-            <option value="18岁到30岁">18岁到30岁</option>
-            <option value="30岁到40岁">30岁到40岁</option>
+          <optgroup label="yonth">青年
+            <option value="18~30">18岁到30岁</option>
+            <option value="30~40">30岁到40岁</option>
           </optgroup>
-          <optgroup label="壮年">壮年
-            <option value="40岁到50岁">40岁到50岁</option>
-            <option value="50岁到60岁">50岁到60岁</option>
+          <optgroup label="meridian of life">壮年
+            <option value="40~50">40岁到50岁</option>
+            <option value="50~60">50岁到60岁</option>
           </optgroup>
         </select></dd>
         </label>
@@ -176,6 +195,7 @@
   <map name="coffee">
     <area shape="rect" coords="69 100,200 300" href="html-basic.html" title="html-basic.html" alt="html-basic.html">
   </map>
+  <!-- 量显示尺寸网页100% -->
   <hr>
 
   <a href="https://wwww.mi.com/" target="frame">小米</a><br>
