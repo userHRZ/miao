@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* * {background-color: rgba(0,0,0,0.08);box-shadow:inset 0 0 1px red;} */
+
+    body {margin:0px;}
+    ul {padding:0px;margin:0px;}
+
+    li {white-space:nowrap;overflow:hidden;}
+
+    ul ul {position:absolute;top:100%;left:0px;}
+
+    ul li {display:inline-block;position:relative;}
+
+    li li {display:block;}
+
+    ul ul ul {position:absolute;top:0px;left:100%;}
+
+    li:hover {overflow:visible;background-color: gray;}
+    
+    .a {background-image: url(https://img.tukuppt.com/png_preview/00/31/11/T1V36Rs3cV.jpg!/fw/780);
+    background-size: 130px 130px;display: inline-block;
+    background-position: -60.5px -28px;width: 20px;height: 21px;
+    vertical-align:bottom;}
+  </style>
+</head>
+<body>
+  <div>
+    <ul>
+      <li>菜单1
+        <ul>
+          <li>打开<div class="a"></div>
+            <ul>
+              <li>文件1</li>
+              <li>文件2</li>
+              <li>文件3</li>
+            </ul>
+          </li>
+          <li>保存</li>
+          <li>另存为</li>
+          <li>新建</li>
+          <li>关闭</li>
+        </ul>
+      </li>      
+        <li>
+          菜单2
+          <ul>
+            <li>一一一一</li>
+            <li>二二二二</li>
+            <li>三三三三</li>
+          </ul>
+        </li>
+      </ul>
+  </div>
+</body>
+</html>

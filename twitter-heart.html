@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* * {background-color: rgba(0,0,0,0.08);box-shadow:inset 0 0 1px red;} */
+/* transition:  3s steps(29) */
+    a:link {background-image: url(image/web_heart_animation.png);
+    display: inline-block;
+    width: 100px;height: 100px;
+    vertical-align: bottom;
+    background-position: 0px 0px;
+    transition:background-position 0.01s steps(1);
+    }
+
+    a:hover {background-position: -2800px 0px;
+    transition:background-position 1.45s steps(28);}
+    
+    a:focus {background-position: -2800px 0px;}
+
+  </style>
+</head>
+<body>
+  <div>
+    <a href="#"></a>
+    <span>
+    </span>
+  </div>
+</body>
+</html>
