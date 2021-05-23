@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {border-collapse:collapse;}
+    td {width: 50px;height: 50px;text-align: center;padding:0px;}/* 表单元格自动带padding */
+
+    .st td {border: 5px solid blue;position:relative;}
+    .st td:hover::before {content:'';position:absolute;border:5px solid red;
+    top:-5px;bottom:-5px;left:-5px;right:-5px;pointer-events:none;}
+
+    .a td {border:5px dashed blue;}
+    .a td:hover {border:5px solid red;}
+
+    .b tr {border:5px solid blue;}
+    .b td {border-left:5px solid blue;}
+    .b td:hover {border:5px solid red;}
+
+    .c col,.c tr {border:5px solid blue;}
+    .c td:hover {border:5px solid red;}
+
+    ul {margin:0;padding:0;list-style:none;width: 180px;border:5px solid red;
+    overflow:hidden;width: 170px;height: 170px;}
+    li {float:left;width: 50px;height: 50px;line-height: 50px;border:5px solid yellow;text-align: center;
+    margin:0 -5px -5px 0;position:relative;}
+    li:hover {border:5px solid red;z-index: 1;}
+  </style>
+</head>
+<body>
+  <table class="st"><!-- 伪元素覆盖 -->
+    <tr><td>1</td><td>2</td><td>3</td></tr>
+    <tr><td>4</td><td>5</td><td>6</td></tr>
+    <tr><td>7</td><td>8</td><td>9</td></tr>
+  </table><br>
+  <table class="a"><!-- double > solid > dashed > dotted > ridge > outset > groove > inset -->
+    <tr><td>1</td><td>2</td><td>3</td></tr>
+    <tr><td>4</td><td>5</td><td>6</td></tr>
+    <tr><td>7</td><td>8</td><td>9</td></tr>
+  </table><br>
+  <table class="b"><!-- td只有左边框,(同类型取最上最左边框) -->
+    <tr><td>1</td><td>2</td><td>3</td></tr>
+    <tr><td>4</td><td>5</td><td>6</td></tr>
+    <tr><td>7</td><td>8</td><td>9</td></tr>
+  </table><br>
+  <table class="c"><!-- 单元格>行组>列组 -->
+  <col><col><col>
+    <tr><td>1</td><td>2</td><td>3</td></tr>
+    <tr><td>4</td><td>5</td><td>6</td></tr>
+    <tr><td>7</td><td>8</td><td>9</td></tr>
+  </table><br>
+  <ul class="d"><!-- 浮动,z-index -->
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+  </ul>
+</body>
+</html>
