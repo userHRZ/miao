@@ -6,56 +6,185 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    /* * {background-color: rgba(0,0,0,0.08);box-shadow:inset 0 0 1px red;} */
-
-    body {margin:0px;}
-    ul {padding:0px;margin:0px;}
-
-    li {white-space:nowrap;overflow:hidden;}
-
-    ul ul {position:absolute;top:100%;left:0px;}
-
-    ul li {display:inline-block;position:relative;}
-
-    li li {display:block;}
-
-    ul ul ul {position:absolute;top:0px;left:100%;}
-
-    li:hover {overflow:visible;background-color: gray;}
-    
-    .a {background-image: url(https://img.tukuppt.com/png_preview/00/31/11/T1V36Rs3cV.jpg!/fw/780);
-    background-size: 130px 130px;display: inline-block;
-    background-position: -60.5px -28px;width: 20px;height: 21px;
-    vertical-align:bottom;}
+    * {background-color:  rgb(0,0,0,0.08);box-shadow:inset 0 0 1px red;}
+    body {margin:0;}
+    body > ul {font-size:0px;}
+    body > ul > li {display:inline-block;width: 50px;font-size:14px;text-align:center;}
+    li {white-space:nowrap;position:relative;padding:5px 10px;box-shadow: none;}
+    li li {min-width: 250px;padding:2px 20px;text-align:left;background-color: #252526;}
+    ul {margin:0;padding:0;list-style:none;white-space: nowrap;background-color: #3c3c3c;color:#cccccc;box-shadow: none;}
+    ul ul {position:absolute;visibility:hidden;left:0;top:100%;padding:5px 0px 10px 0px;transition:0.5s;opacity:0;background-color: #252526;}
+    ul ul ul {left:100%;top:0;}
+    li:hover {background-color: #505050;}
+    li li:hover {background-color: #094771;box-sizing:border-box;}
+    li:hover > ul {visibility:visible;opacity:1;transition:0.5s;}
+    span {float:right;}
+    hr {border-width:1px 0 0 0;margin:4px 10px;}
+    input {display:none;}
+    input:checked + label > li:before {content:"\2714";margin-left:-11.2px;}/* 对钩的大小随字体改变 */
   </style>
 </head>
 <body>
-  <div>
-    <ul>
-      <li>菜单1
-        <ul>
-          <li>打开<div class="a"></div>
-            <ul>
-              <li>文件1</li>
-              <li>文件2</li>
-              <li>文件3</li>
-            </ul>
-          </li>
-          <li>保存</li>
-          <li>另存为</li>
-          <li>新建</li>
-          <li>关闭</li>
-        </ul>
-      </li>      
-        <li>
-          菜单2
+  <ul>
+    <li>文件
+      <ul>
+        <li>新建文件<span>Ctrl+N</span></li>
+        <li>新建窗口<span>Ctrl+Shift+N</span></li>
+        <hr>
+        <li>打开文件...<span>Ctrl+O</span></li>
+        <li>打开文件夹...<span>Ctrl+K Ctrl+O</span></li>
+        <li>打开工作区...</li>
+        <li>打开最近文件<span>></span>
           <ul>
-            <li>一一一一</li>
-            <li>二二二二</li>
-            <li>三三三三</li>
+          <li>重新打开已关闭的编辑器<span>Ctrl+Shift+T</span></li>
+          <hr>
+          <li>C:\Users\Desktop</li>
+          <li>C:\Users\Desktop\abc\123\aaaaa\新建文件夹\一二三\君不见，黄河之水天上来，奔流到海不复回</li>
+          <hr>
+          <li>更多... <span>Ctrl+R</span></li>
+          <hr>
+          <li>清除最近打开记录</li>
           </ul>
         </li>
+        <hr>
+        <li>将文件夹添加到工作区...</li>
+        <li>将工作区另存为...</li>
+        <hr>
+        <li>保存<span>Ctrl+S</span></li>
+        <li>另存为... <span>Ctrl+Shift+S</span></li>
+        <li>全部保存<span>Ctrl+K S</span></li>
+        <hr>
+        <li>自动保存</li>
+        <li>首选项<span>></span>
+          <ul>
+            <li>设置</li>
+            <li>联机服务设置</li>
+            <li>扩展</li>
+            <hr>
+            <li>键盘快捷方式<span>Ctrl+K Ctrl+S</span></li>
+            <li>键映射<span>Ctrl+K Ctrl+M</span></li>
+            <hr>
+            <li>用户片段</li>
+            <hr>
+            <li>颜色主题<span>Ctrl+K Ctrl+T</span></li>
+            <li>文件图标主题</li>
+            <li>产品图标主题</li>
+            <hr>
+            <li>打开设置同步</li>
+          </ul>
+        </li>
+        <hr>
+        <li>还原文件</li>
+        <li>关闭编辑器<span>Ctrl+F4</span></li>
+        <li>关闭文件夹<span>Ctrl+K F</span></li>
+        <li>关闭窗口<span>Ctrl+W</span></li>
+        <hr>
+        <li>退出</li>
       </ul>
-  </div>
+    </li> 
+    <li>编辑
+      <ul>
+        <li>撤销<span>Ctrl+Z</span></li>
+        <li>恢复<span>Ctrl+Y</span></li>
+        <hr>
+        <li>复制<span>Ctrl+X</span></li>
+        <li>剪切<span>Ctrl+C</span></li>
+        <li>粘贴<span>Ctrl+V</span></li>
+        <hr>
+        <li>查找<span>Ctrl+F</span></li>
+        <li>替换<span>Ctrl+H</span></li>
+        <hr>
+        <li>在文件中查找<span>Ctrl+Shift+F</span></li>
+        <li>在文件中替换<span>Ctrl+Shift+H</span></li>
+        <hr>
+        <li>切换行注释<span>Ctrl+/</span></li>
+        <li>切换块注释<span>Shift+Alt+A</span></li>
+        <li>Emmet:展开缩写<span>Tab</span></li>
+        <hr>
+      </ul>
+    </li>
+    <li>选择</li>
+    <li>查看
+      <ul>
+        <li>命令面板...<span>Ctrl+Shift+P</span></li>
+        <li>打开视图...</li>
+        <hr>
+        <li>外观<span>></span>
+          <ul>
+            <li>全局<span>F11</span></li>
+            <li>禅模式<span>Ctrl+K Z</span></li>
+            <input type="checkbox" id="b1" checked>
+            <label for="b1"><li>居中布局</li></label>
+            <hr>
+            <input type="checkbox" id="b2" checked>
+            <label for="b2"><li>显示菜单栏</li></label>
+            <input type="checkbox" id="b3">
+            <label for="b3"><li>显示侧栏<span>Ctrl+B</span></li></label>
+            <input type="checkbox" id="b4" checked>
+            <label for="b4"><li>显示状态栏</li></label>
+            <input type="checkbox" id="b5" checked>
+            <label for="b5"><li>显示活动栏</li></label>
+            <input type="checkbox" id="b6" checked>
+            <label for="b6"><li>显示编辑区域</li></label>
+            <input type="checkbox" id="b7">
+            <label for="b7"><li>显示面板<span>Ctrl+J</span></li></label>
+            <hr>
+            <li>向右移动侧边栏</li>
+            <li>将面板移至右侧</li>
+            <li>将面板移至左侧</li>
+            <hr>
+            <li>放大<span>Ctrl+=</span></li>
+            <li>缩小<span>Ctrl+-</span></li>
+            <li>重置缩放<span>Ctrl+Numpad0</span></li>
+          </ul>
+        </li>
+        <li>编辑器布局<span>></span>
+          <ul>
+            <li>向上拆分</li>
+            <li>向下拆分</li>
+            <li>向左拆分</li>
+            <li>向右拆分</li>
+            <hr>
+            <li>单列</li>
+            <li>双列</li>
+            <li>三列</li>
+            <li>双行</li>
+            <li>三行</li>
+            <li>22网络</li>
+            <li>右侧双行</li>
+            <li>底部双列</li>
+            <hr>
+            <li>翻转布局<span>Shift+Alt+0</span></li>
+          </ul>
+        </li>
+        <hr>
+        <li>资源管理器<span>Ctrl+Shift+E</span></li>
+        <li>搜索</li>
+        <li>SCM<span>Ctrl+Shift+G</span></li>
+        <li>运行<span>Ctrl+Shift+D</span></li>
+        <li>扩展<span>Ctrl+Shift+X</span></li>
+        <hr>
+        <li>问题<span></span></li>
+        <li>输出<span></span></li>
+        <li>调试控制台<span></span></li>
+        <li>终端<span></span></li>
+        <hr>
+        <input type="checkbox" id="a1">
+        <label for="a1"><li>切换自动换行<span>Alt+Z</span></li></label>
+        <input type="checkbox" id="a2">
+        <label for="a2"><li>显示缩略图</li></label>
+        <input type="checkbox" id="a3" checked>
+        <label for="a3"><li>显示导航痕迹</li></label>
+        <input type="checkbox" id="a4" checked>
+        <label for="a4"><li>呈现空格</li></label>
+        <input type="checkbox" id="a5" checked>
+        <label for="a5"><li>呈现控制字符</li></label>
+      </ul>
+    </li>
+    <li>转到</li>
+    <li>运行</li>
+    <li>终端</li>
+    <li>帮助</li>
+  </ul>
 </body>
 </html>
