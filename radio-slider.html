@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {background-color: rgb(0,0,0,0.08);box-shadow:inset 0 0 1px red;}
+
+    html,body {margin:0;height: 100%;width: 100%;}
+    section {width: 400px;height: 300px;position:absolute;margin:auto;top:0;left:0;right: 0;bottom:0;}
+    
+    .img {width: 100%;height: 100%;float:left;position:absolute;top:0;}
+    .img div {width: 25%;height: 100%;float:left;position: relative;overflow: hidden;}
+    .img div span {position: absolute;width: 100%;height: 100%;background-size: 400px 100%;background-repeat: no-repeat;}
+    .img p {font-size: 30px;position:absolute;z-index:10;text-align:center;vertical-align:middle;display:inline-block;top:70%;left:0;right: 0;margin:auto;height: 30px;color:#fff;text-shadow:0 0 10px #5577bb;}
+    
+    .img div span:first-child {background-image: url(https://travel.12306.cn/imgs/resources/uploadfiles/images/b0c76b21-531b-4af4-a607-cf5672c72ded_product_W572_H370.jpg);}
+    .img div span:nth-of-type(2) {background-image: url(https://travel.12306.cn/imgs/resources/uploadfiles/images/1716878f-79a2-4db1-af8c-b9c2039f0b3c_product_W572_H370.jpg);}
+    .img div span:nth-of-type(3) {background-image: url(https://travel.12306.cn/imgs/resources/uploadfiles/images/8b36f9a7-f780-4e71-b719-9300109a9ff2_product_W572_H370.jpg);}
+    .img div span:nth-of-type(4) {background-image: url(https://travel.12306.cn/imgs/resources/uploadfiles/images/6d77d0ea-53d0-4518-b7e9-e53795b4920c_product_W572_H370.jpg);}
+    .img div:first-child span  {background-position: 0 0;}
+    .img div:nth-of-type(2) span {background-position: -100px 0;}
+    .img div:nth-of-type(3) span {background-position: -200px 0;}
+    .img div:nth-of-type(4) span {background-position: -300px 0;}
+    @keyframes leave1 {from{left:0;}to{left:100%;}}
+    input:nth-of-type(1):checked ~ .img div span {left: -100%;animation:leave1 .8s;}
+    @keyframes leave2 {from{left:0;}to{left:-100%;}}
+    input:nth-of-type(2):checked ~ .img div:nth-of-type(1) span,
+    input:nth-of-type(2):checked ~ .img div:nth-of-type(3) span {left:-100%;animation:leave1 .8s;} 
+    input:nth-of-type(2):checked ~ .img div:nth-of-type(2) span,
+    input:nth-of-type(2):checked ~ .img div:nth-of-type(4) span {left:100%;animation:leave2 .8s;} 
+    @keyframes leave3 {from{top:0;}to{top:-100%;}}
+    @keyframes leave4 {from{top:0;}to{top: 100%;}}
+    input:nth-of-type(3):checked ~ .img div:nth-of-type(1) span,
+    input:nth-of-type(3):checked ~ .img div:nth-of-type(3) span {top:100%;animation:leave3 .8s;} 
+    input:nth-of-type(3):checked ~ .img div:nth-of-type(2) span,
+    input:nth-of-type(3):checked ~ .img div:nth-of-type(4) span {top:-100%;animation:leave4 .8s;} 
+    @keyframes leave5 {from{opacity:1;transform: scale(1);}to{opacity:0;transform: scale(2);}}
+    input:nth-of-type(4):checked ~ .img div span {transform: scale(2);opacity:0;animation:leave5 .8s;}
+
+    input:nth-of-type(1):checked ~ input:nth-of-type(5):checked ~ .img div span:nth-of-type(1),
+    input:nth-of-type(1):checked ~ input:nth-of-type(6):checked ~ .img div span:nth-of-type(2),
+    input:nth-of-type(1):checked ~ input:nth-of-type(7):checked ~ .img div span:nth-of-type(3),
+    input:nth-of-type(1):checked ~ input:nth-of-type(8):checked ~ .img div span:nth-of-type(4) {left:0;transition:0.7s;animation:none;z-index:5;}
+    
+    input:nth-of-type(2):checked ~ input:nth-of-type(5):checked ~ .img div span:nth-of-type(1),
+    input:nth-of-type(2):checked ~ input:nth-of-type(6):checked ~ .img div span:nth-of-type(2),
+    input:nth-of-type(2):checked ~ input:nth-of-type(7):checked ~ .img div span:nth-of-type(3),
+    input:nth-of-type(2):checked ~ input:nth-of-type(8):checked ~ .img div span:nth-of-type(4) {left:0;transition:0.7s;animation:none;z-index:5;}
+
+    input:nth-of-type(3):checked ~ input:nth-of-type(5):checked ~ .img div span:nth-of-type(1),
+    input:nth-of-type(3):checked ~ input:nth-of-type(6):checked ~ .img div span:nth-of-type(2),
+    input:nth-of-type(3):checked ~ input:nth-of-type(7):checked ~ .img div span:nth-of-type(3),
+    input:nth-of-type(3):checked ~ input:nth-of-type(8):checked ~ .img div span:nth-of-type(4) {top:0;transition:0.7s;animation:none;z-index:5;}
+    
+    input:nth-of-type(4):checked ~ input:nth-of-type(5):checked ~ .img div span:nth-of-type(1),
+    input:nth-of-type(4):checked ~ input:nth-of-type(6):checked ~ .img div span:nth-of-type(2),
+    input:nth-of-type(4):checked ~ input:nth-of-type(7):checked ~ .img div span:nth-of-type(3),
+    input:nth-of-type(4):checked ~ input:nth-of-type(8):checked ~ .img div span:nth-of-type(4) {transform: scale(1);opacity:1;transition:0.7s;animation:none;z-index:5;}
+
+    input:nth-of-type(1):checked ~ .img p {opacity: 0;transition:1s;}
+    input:nth-of-type(1):checked ~ input:nth-of-type(5):checked ~ .img p:nth-of-type(1),
+    input:nth-of-type(1):checked ~ input:nth-of-type(6):checked ~ .img p:nth-of-type(2),
+    input:nth-of-type(1):checked ~ input:nth-of-type(7):checked ~ .img p:nth-of-type(3),
+    input:nth-of-type(1):checked ~ input:nth-of-type(8):checked ~ .img p:nth-of-type(4) {opacity: 1;}
+
+    input:nth-of-type(2):checked ~ .img p {opacity: 0;transform: scale(.3);transition:1s;}
+    input:nth-of-type(2):checked ~ input:nth-of-type(5):checked ~ .img p:nth-of-type(1),
+    input:nth-of-type(2):checked ~ input:nth-of-type(6):checked ~ .img p:nth-of-type(2),
+    input:nth-of-type(2):checked ~ input:nth-of-type(7):checked ~ .img p:nth-of-type(3),
+    input:nth-of-type(2):checked ~ input:nth-of-type(8):checked ~ .img p:nth-of-type(4) {opacity: 1;transform: scale(1);}
+    
+    input:nth-of-type(3):checked ~ .img p {opacity: 0;transition:1s;top:40%;}
+    input:nth-of-type(3):checked ~ input:nth-of-type(5):checked ~ .img p:nth-of-type(1),
+    input:nth-of-type(3):checked ~ input:nth-of-type(6):checked ~ .img p:nth-of-type(2),
+    input:nth-of-type(3):checked ~ input:nth-of-type(7):checked ~ .img p:nth-of-type(3),
+    input:nth-of-type(3):checked ~ input:nth-of-type(8):checked ~ .img p:nth-of-type(4) {opacity: 1;top:70%;}
+
+    input:nth-of-type(4):checked ~ .img p {opacity:0;filter:blur(10px);transition:1s linear;}
+    input:nth-of-type(4):checked ~ input:nth-of-type(5):checked ~ .img p:nth-of-type(1),
+    input:nth-of-type(4):checked ~ input:nth-of-type(6):checked ~ .img p:nth-of-type(2),
+    input:nth-of-type(4):checked ~ input:nth-of-type(7):checked ~ .img p:nth-of-type(3),
+    input:nth-of-type(4):checked ~ input:nth-of-type(8):checked ~ .img p:nth-of-type(4) {opacity:1;filter:blur(0);transition:1s linear;}
+
+    section input {position:relative;top:100%;display: none;}
+    .demo label div {display:inline-block;height: 50px;width: 50px;border-radius: 100%;background-color: #a7cbda;z-index: 10;position:absolute;text-align: center;font:oblique 12px/50px arial,sans-serif;top:-70px;margin:0 -25px;color:white;}
+    .demo label {display:inline-block;height: 50px;width: 60px;text-align: center;top:-50px;z-index: 10;}
+    .demo {text-align: center;}
+    .demo label:hover div {background-color: #4fa2c4;}
+    input:nth-of-type(1):checked ~ .demo label:nth-of-type(1) div,
+    input:nth-of-type(2):checked ~ .demo label:nth-of-type(2) div,
+    input:nth-of-type(3):checked ~ .demo label:nth-of-type(3) div,
+    input:nth-of-type(4):checked ~ .demo label:nth-of-type(4) div {background-color: #fff;color:#4fa2c4;}
+
+    .foo label div {display:inline-block;height: 30px;width: 30px;border-radius: 100%;background-color: #a7cbda;z-index: 10;text-align: center;font:oblique 16px/30px arial,sans-serif;margin:0 -16px;box-shadow:0 0 2px #ffffff22;color:white;}
+    .foo label {display:inline-block;height: 38px;width: 38px;text-align: center;z-index: 10;margin:0 30px;background-color: #4fa2c433;border-radius: 100%;line-height: 36px;}
+    .foo {text-align: center;position:absolute;top: 85%;z-index: 10;}
+    input:nth-of-type(5):checked ~ .foo label:nth-of-type(1) div,
+    input:nth-of-type(6):checked ~ .foo label:nth-of-type(2) div,
+    input:nth-of-type(7):checked ~ .foo label:nth-of-type(3) div,
+    input:nth-of-type(8):checked ~ .foo label:nth-of-type(4) div {background-color: #fff;color:#4fa2c4;}
+    input:nth-of-type(5):checked ~ .foo label:nth-of-type(1),
+    input:nth-of-type(6):checked ~ .foo label:nth-of-type(2),
+    input:nth-of-type(7):checked ~ .foo label:nth-of-type(3),
+    input:nth-of-type(8):checked ~ .foo label:nth-of-type(4) {background-color: #4fa2c4aa;}
+    label div {cursor:pointer;}
+
+  </style>
+</head>
+<body>
+  <section>
+    <input type="radio" name="b1" id="Demo1" checked>
+    <input type="radio" name="b1" id="Demo2">
+    <input type="radio" name="b1" id="Demo3">
+    <input type="radio" name="b1" id="Demo4">
+    <input type="radio" name="a1" id="foo1" checked>
+    <input type="radio" name="a1" id="foo2">
+    <input type="radio" name="a1" id="foo3">
+    <input type="radio" name="a1" id="foo4">
+    <div class="demo">
+      <label for="Demo1"><div>Demo1</div></label><!--
+   --><label for="Demo2"><div>Demo2</div></label><!--
+   --><label for="Demo3"><div>Demo3</div></label><!--
+   --><label for="Demo4"><div>Demo4</div></label>
+    </div>
+    <div class="foo">
+      <label for="foo1"><div>1</div></label><!--
+   --><label for="foo2"><div>2</div></label><!--
+   --><label for="foo3"><div>3</div></label><!--
+   --><label for="foo4"><div>4</div></label>
+    </div>
+    <div class="img">
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p>天水-麦积山</p>
+      <p>夏河-拉卜楞寺</p>
+      <p>嘉峪关</p>
+      <p>茶卡盐湖</p>
+    </div>
+  </section>
+
+</body>
+</html>
