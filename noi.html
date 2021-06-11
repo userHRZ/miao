@@ -182,9 +182,9 @@
   var a = prompt('请输入字符a')
   var charCode = a.charCodeAt(0)
   if (charCode % 2 == 1) {
-    console.log('YES'),console.log(charCode)
+    console.log('YES'),
   } else {
-    console.log('NO'),console.log(charCode)
+    console.log('NO'),
   }
 </script>
 
@@ -213,6 +213,13 @@
 
 <!-- Math.floor(a / 10) > 0 || Math.floor(b / 20) > 0 复杂了，只问是否中奖 -->
 <script id="ch0104/07"> 
+var a = prompt('a')
+var b = prompt('b')
+if (a >= 10 || b >= 20) {
+  console.log(1)
+} else {
+  console.log(0)
+}
 </script>
 
 
@@ -298,9 +305,9 @@ if (a >= 60 && b >= 60) {
 <script id="ch0104/11">
     var a = +prompt('请输入a')
 if (a == 2 || a == 4 || a == 6 || a == 7) {
-  'YES'
+  console.log('YES')
 } else {
-  'NO'
+  console.log('NO')
 }
 </script>
 
@@ -308,11 +315,11 @@ if (a == 2 || a == 4 || a == 6 || a == 7) {
 <script id="ch0104/12">
    var a = +prompt('请输入a')
    if (a / 1.2 > (a / 3 + 50)) {
-     'Bike'
+    console.log('Bike')
    } else if (a / 1.2 == (a / 3 + 50)) {
-     'All'
+    console.log('All')
    } else {
-     'Walk'
+    console.log('Walk')
    }
 </script>
 
@@ -350,15 +357,15 @@ if (a == 2 || a == 4 || a == 6 || a == 7) {
     var c = 8 + Math.ceil((a - 1000) / 500) * 4
     if (b == 'y') {
       if (a <= 1000){
-        8 + 5
+        console.log(8 + 5)
       } else if (a > 1000) {
-        c + 5
+        console.log(c + 5)
       }
     } else if (b == 'n') {
       if (a <= 1000){
-        8
+        console.log(8)
       } else if (a > 1000) {
-        c
+        console.log(c)
       }
     }
 </script>
@@ -383,11 +390,11 @@ if (a >= b && a >= c) {
   var b = +prompt("b")
   var c = +prompt("c")
   if (a >= b && a >= c) {
-    a
+    console.log(a)
   } else if (b >= a && b >= c) {
-    b
+    console.log(b)
   } else if (c >= b && c >= a) {
-    c
+    console.log(c)
   }
 </script>
 <!-- <script id="ch0104/15">
@@ -410,9 +417,9 @@ max = a
   var b = +prompt("b")
   var c = +prompt("c")
   if (a + b > c && b + c > a && a + c > b) {
-    'yes'
+    console.log('yes')
   } else {
-    'no'
+    console.log('no')
   }
 </script>
 
@@ -420,9 +427,9 @@ max = a
 <script id="ch0104/17">
   var a = +prompt('a')
   if (a % 4 == 0 && a % 100 !== 0 || a % 400 == 0) {
-    'Y'
+    console.log('Y')
   } else {
-    'N'
+    console.log('N')
   }
 </script>
 
@@ -431,9 +438,9 @@ max = a
   var x = prompt('x')
   var y = prompt('y')
   if (x >= -1 && x <= 1 && y >= -1 && y <= 1) {
-    'yes'
+    console.log('yes')
   } else {
-    'no'
+    console.log('no')
   }
 </script>
 
@@ -522,7 +529,7 @@ if (operator == '+') {
     all = all + a
     count = count + 1
   }
- console.log(all / n)
+ console.log((all / n).toFixed(2))
 </script>
 
 
@@ -666,7 +673,7 @@ var n = +prompt('n')
   var n = +prompt('n')
   var and = 0
   var a = 0
-  while (a <= n) {
+  while (a < n) {
     while (m % 17 !== 0 && m <= n) {
         m = m + 1
     }
@@ -764,19 +771,4 @@ var n = +prompt('n')
   console.log(Math.trunc(M))
 </script>
 
-
-
-<script id="ch0105/16">
-  var N = +prompt('N')
-  var K = +prompt('K')
-  var s1 = 0
-  var s2 = 200
-  var y = 1
-  while (s1 < s2) {
-    s1 = N * y
-    s2 = s2 * (1 + (K / 100))
-    y = y + 1
-  }
-  console.log(y)
-</script>
 
