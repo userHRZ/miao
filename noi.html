@@ -144,3 +144,639 @@
   var n = Number(prompt('请输入非负整数n'))
   console.log(Math.pow(2,n))
 </script>
+
+
+
+<script id="ch0104/01">
+  var N = prompt('请输入整数N')
+  if (N > 0) {
+    console.log('positive')
+  } else if (N = 0) {
+    console.log('zero')
+  } else if (N < 0) {
+    console.log('negative')
+  }
+</script>
+
+
+<script id="ch0104/02">
+    var a = +prompt('请输入浮点数a')
+    if (a < 0) {
+      a = -a
+    }
+      console.log(a.toFixed(2))
+</script>
+
+
+<script id="ch0104/03">
+  var a = +prompt('请输入正整数a')
+  if (a % 2 == 1) {
+    console.log('odd')
+  } else if (a % 2 == 0) {
+    console.log('even')
+  }
+</script>
+
+
+<script id="ch0104/04">
+  var a = prompt('请输入字符a')
+  var charCode = a.charCodeAt(0)
+  if (charCode % 2 == 1) {
+    console.log('YES'),console.log(charCode)
+  } else {
+    console.log('NO'),console.log(charCode)
+  }
+</script>
+
+
+<script id="ch0104/05">
+    var x = +prompt('请输入x')
+    var y = +prompt('请输入y')
+    if (x > y) {
+      console.log(">")
+    } else if (x == y) {
+      console.log('=')
+    } else {
+      console.log('<')
+    }
+</script>
+
+
+<script id="ch0104/06">
+    var a = +prompt('请输入a')
+    if (10 <= a && a <= 99) {
+      console.log('1')
+    } else {
+      console.log('0')
+    }
+</script>
+
+<!-- Math.floor(a / 10) > 0 || Math.floor(b / 20) > 0 复杂了，只问是否中奖 -->
+<script id="ch0104/07"> 
+</script>
+
+
+<script id="ch0104/08">
+    var a = +prompt('请输入a')
+    if (a % 3 == 0 && a % 5 == 0) {
+      console.log('YES')
+    } else {
+      console.log('NO')
+    }
+</script>
+
+
+<!-- <script id="ch0104/09">
+  var a = +prompt('请输入a')
+    if (a % 3 == 0 && a % 5 == 0 && a % 7 == 0) {
+      '3 5 7'
+    } else if (a % 3 == 0 && a % 5 == 0){
+      '3 5'
+    } else if (a % 3 == 0 && a % 7 == 0){
+      '3 7'
+    } else if (a % 5 == 0 && a % 7 == 0){
+      '5 7'
+    } else if (a % 3 == 0){
+      '3'
+    } else if (a % 5 == 0){
+      '5'
+    } else if (a % 7 == 0){
+      '7'
+    } else {
+      'n'
+    }
+    前面条件为真，则后面不运行。 如若else if (a % 3 == 0)在前，则不会选中'3 5 7'，'3 7'等。
+</script> -->
+<script id="ch0104/09">
+  var a = +prompt('请输入a')
+  if (a % 3 == 0 || a % 5 == 0 || a % 7 == 0) {
+    if (a % 3 == 0) {console.log('3')}
+    if (a % 5 == 0) {console.log('5')}
+    if (a % 7 == 0) {console.log('7')}
+  } else {
+    console.log('n')
+  }
+</script>
+
+<!-- var a = Number(prompt('a'))
+var b = Number(prompt('b'))
+var c = Number(prompt('c'))
+var d = Number(prompt('d'))
+var e = Number(prompt('e'))
+var 不及格 = 0
+if (a < 60) {
+  不及格 = 不及格 + 1
+}
+if (b < 60) {
+  不及格 = 不及格 + 1
+}
+if (c < 60) {
+  不及格 = 不及格 + 1
+}
+if (d < 60) {
+  不及格 = 不及格 + 1
+}
+if (e < 60) {
+  不及格 = 不及格 + 1
+}
+if (不及格 >= 2){
+  console.log('1')
+} else {
+  console.log('0')
+} -->
+<script id="ch0104/10">
+    var a = +prompt('请输入语文a')
+    var b = +prompt('请输入数学b')
+if (a >= 60 && b >= 60) {
+  console.log('0')
+} else {
+  console.log('1')
+}
+</script>
+
+
+<script id="ch0104/11">
+    var a = +prompt('请输入a')
+if (a == 2 || a == 4 || a == 6 || a == 7) {
+  'YES'
+} else {
+  'NO'
+}
+</script>
+
+
+<script id="ch0104/12">
+   var a = +prompt('请输入a')
+   if (a / 1.2 > (a / 3 + 50)) {
+     'Bike'
+   } else if (a / 1.2 == (a / 3 + 50)) {
+     'All'
+   } else {
+     'Walk'
+   }
+</script>
+
+
+<script id="ch0104/13">
+  var x = +prompt('请输入x')
+  if (x >= 0 && x < 5) {
+    console.log((y = - x + 2.5).toFixed(3))
+  } else if (x >= 5 && x < 10) {
+    console.log((y = 2 - 1.5 * (x - 3) * (x - 3)).toFixed(3))
+  } else if (x >= 10 && x < 20) {
+    console.log((y = x / 2 - 1.5).toFixed(3))
+  }
+</script>
+
+<!-- <script id="ch0104/14">
+  var a = +prompt('请输入重量a')
+  var b = prompt('是否加急？')
+  var c = prompt('是否保价?')
+  var price = 8
+  if (a > 1000) {
+    price = price + Math.ceil((a - 1000) / 500) * 4
+  }
+  if (b == 'y') {
+    price = price + 5
+  }
+  if (c == 'y') {
+    price = price + 3
+  }
+  console.log(price)
+</script> -->
+<script id="ch0104/14">
+    var a = +prompt('请输入重量a')
+    var b = prompt('是否加急？')
+    var c = 8 + Math.ceil((a - 1000) / 500) * 4
+    if (b == 'y') {
+      if (a <= 1000){
+        8 + 5
+      } else if (a > 1000) {
+        c + 5
+      }
+    } else if (b == 'n') {
+      if (a <= 1000){
+        8
+      } else if (a > 1000) {
+        c
+      }
+    }
+</script>
+
+
+<!-- 
+var a = Number(prompt("a"))
+var b = Number(prompt("b"))
+var c = Number(prompt("c"))
+if (a >= b && a >= c) {
+  console.log(a)
+} 
+ if (b >= a && b >= c) {
+  console.log(b)
+}
+ if (c >= b && c >= a) {
+  console.log(c)
+}          当abc相同时,会输出3个值. 
+-->
+<script id="ch0104/15">
+  var a = +prompt("a")
+  var b = +prompt("b")
+  var c = +prompt("c")
+  if (a >= b && a >= c) {
+    a
+  } else if (b >= a && b >= c) {
+    b
+  } else if (c >= b && c >= a) {
+    c
+  }
+</script>
+<!-- <script id="ch0104/15">
+max = a
+  var a = +prompt("a")
+  var b = +prompt("b")
+  var c = +prompt("c")
+  if (b > max) {
+    max = b
+  }
+  if (c > max) {
+    max = c
+  }
+  console.log(max)
+</script> -->
+
+
+<script id="ch0104/16">
+  var a = +prompt("a")
+  var b = +prompt("b")
+  var c = +prompt("c")
+  if (a + b > c && b + c > a && a + c > b) {
+    'yes'
+  } else {
+    'no'
+  }
+</script>
+
+
+<script id="ch0104/17">
+  var a = +prompt('a')
+  if (a % 4 == 0 && a % 100 !== 0 || a % 400 == 0) {
+    'Y'
+  } else {
+    'N'
+  }
+</script>
+
+
+<script id="ch0104/18">
+  var x = prompt('x')
+  var y = prompt('y')
+  if (x >= -1 && x <= 1 && y >= -1 && y <= 1) {
+    'yes'
+  } else {
+    'no'
+  }
+</script>
+
+
+<script id="ch0104/19">
+  // var a = +prompt('a')
+  // var b = +prompt('b')
+  // var c = prompt('符号')
+  // if (b = 0) {
+  //   'Divided by zero!'-----------错误,+-*时b都能为0.
+  // } else if (c !== '+' && c !== '-' && c !== '/' && c !== '*') {
+  //   'Invalid operator!'
+  // } else if (c = '+') {
+  //   a + b
+  // } else if (c = '-') {
+  //   a - b
+  // } else if (c = '*') {
+  //   a * b
+  // } else if (c = '/') {
+  //   a / b
+  // }
+  var a = +prompt('a')
+  var b = +prompt('b')
+  var operator = prompt('符号')
+if (operator == '+') {
+  console.log(a + b)
+} else if (operator == '-') {
+  console.log(a - b)
+} else if (operator == '*') {
+  console.log(a * b)
+} else if (operator == '/') {
+  if (b == 0) {
+    console.log('Divided by zerol')
+  } else {
+  console.log(a / b)
+  }
+} else if {
+  console.log('Invalid oprator!')
+}
+</script>
+
+
+<script id="ch0104/20">
+  var a = Number(prompt('a'))
+  var b = Number(prompt('b'))
+  var c = Number(prompt('c'))
+  var delta = b * b - 4 * a * c
+
+  if (delta == 0) {
+    var x = (-b / 2 / a).toFixed(5)
+    var x1 = 'x1=' + x
+    var x2 = 'x2=' + x
+    console.log(x1 + ';' + x2)
+  } else if (delta > 0) {
+    var s1 = (-b + Math.sqrt(delta)) / (2 * a)
+    var s2 = (-b - Math.sqrt(delta)) / (2 * a)
+    var x1 = 'x1=' + s1.toFixed(5)
+    var x2 = 'x2=' + s1.toFixed(5)
+    console.log(x1 + ';' + x2)
+  } else if (delta < 0) {
+    var sd = Math.sqrt(-delta)
+    var s1 = (-b / 2 / a).toFixed(5)
+    var s2 = (sd / 2 / a).toFixed(5)
+    x1 = 'x1=' + s1 + "+" + s2 + "i"
+    x2 = 'x2=' + s1 + "-" + s2 + "i"
+    console.log(x1 + ';' + x2)
+  }
+</script>
+
+
+<script id="ch0104/21">
+  var n = prompt('n')
+  var x = prompt('x')
+  var y = prompt('y')
+  console.log(n - Math.ceil(y / x))
+</script>
+
+
+
+<script id="ch0105/01">
+  var n = +prompt('人数n')
+  var count = 0
+  var all = 0
+  while (count < n) {
+    var a = +prompt('年龄a')
+    all = all + a
+    count = count + 1
+  }
+ console.log(all / n)
+</script>
+
+
+<script id="ch0105/02">
+  var all = 0 
+  var count = 0
+  while (count < 12) {
+  var m = Number(prompt('结余m'))
+    all = m + all
+    count = count + 1
+  }
+  console.log('$' + (all / 12).toFixed(2))
+</script>
+
+
+
+<script id="ch0105/03">
+var n = +prompt('n')
+var all = 0
+var count = 0
+while (count < n) {
+  var m = +prompt('m')
+  all = m + all
+  count = count + 1
+}
+var average = all / n
+console.log(average.toFixed(4))
+</script>
+
+
+
+<script id="ch0105/04">
+var n = +prompt('n')
+var all = 0
+var count = 0
+while (count < n) {
+  var m = +prompt('m')
+  all = m + all
+  count = count + 1
+}
+var average = (all / n).toFixed(5)
+console.log(all,average)
+</script>
+
+
+
+<script id="ch0105/05">
+var n = +prompt('n')
+var max = -Infinity
+var count = 0
+while (count < n) {
+  var m = +prompt('m')
+  if (m > max) {
+    max = m
+  }
+  count = count + 1
+}
+console.log(max)
+</script>
+
+
+
+<script id="ch0105/06">
+var n = +prompt('n')
+var max = -Infinity
+var min = Infinity
+var count = 0
+while (count < n) {
+  var m = +prompt('m')
+  if (m > max) {
+    max = m
+  }
+  if (m < min) {
+    min = m
+  }
+  count = count + 1
+}
+var D = max - min
+console.log(D)
+</script>
+
+
+
+<script id="ch0105/07">
+  var n = +prompt('n')
+  var 金 = 0
+  var 银 = 0
+  var 铜 = 0
+  var all = 0
+  var count = 0
+  while (count < n) {
+    var Au = +prompt('金')
+    金 = 金 + Au
+    var Ag = +prompt('银')
+    银 = 银 + Ag
+    var Cu = +prompt('铜')
+    铜 = 铜 + Cu
+    all = 金 + 银 + 铜
+    count = count + 1
+  }
+  console.log(金,银,铜,all)
+
+</script>
+
+
+
+<script id="ch0105/08">
+  var n = +prompt('n')
+  var and = 0
+  var count = 0
+  while (count < n - 1) {
+    var m = +prompt('m')
+    and = m + and
+    count = count + 1
+  }
+  var d = (n - 2) * 180 - and
+  console.log(d)
+
+</script>
+
+
+
+<script id="ch0105/09">
+var m = +prompt('m')
+var n = +prompt('n')
+  var and = 0
+  if (m % 2 == 0) {
+    m = m + 1
+  }
+  while (m <= n) {
+      and = m + and
+      m = m + 2
+  }
+  console.log(and)
+</script>
+
+
+
+<script id="ch0105/10">
+  var m = +prompt('m')
+  var n = +prompt('n')
+  var and = 0
+  var a = 0
+  while (a <= n) {
+    while (m % 17 !== 0 && m <= n) {
+        m = m + 1
+    }
+    a = m
+    m = m + 1
+    and = a + and
+  }
+  console.log(and)
+</script>
+
+
+
+<script id="ch0105/11">
+  var k = +prompt('k')
+  var count1 = 0
+  var count5 = 0
+  var count10 = 0
+  var countk = 0
+  while (countk < k) {
+    var m = +prompt('m')
+    if (m == 1) {
+      count1 = count1 + 1
+    }
+    if (m == 5) {
+      count5 = count5 + 1
+    }
+    if (m == 10) {
+      count10 = count10 + 1
+    }
+    countk = countk + 1
+  }
+  console.log(count1)
+  console.log(count5)
+  console.log(count10)
+</script>
+
+
+
+<script id="ch0105/12">
+  var N = +prompt('N')
+  var m = +prompt('m')
+  var same = 0
+  var count = 0
+  while (count < N) {
+    var a = +prompt('a')
+    if (a == m) {
+      same = same + 1
+    }
+    count = count + 1
+  }
+  console.log(same)
+</script>
+
+
+
+<script id="ch0105/13">
+  var a = +prompt('a')
+  var b = +prompt('b')
+  var x = a
+  var k = 1
+  while (k < b) {
+    x = x * a
+    k = k + 1
+  }
+  if (x < 1000000) {
+    console.log(x)
+  }
+</script>
+
+
+
+<script id="ch0105/14">
+  var x = +prompt('x')
+  var n = +prompt('n')
+  var count = 0
+  while (count < n) {
+    x = x * 1.001
+    count = count + 1
+  }
+  console.log(x.toFixed(4))
+
+</script>
+
+
+
+<script id="ch0105/15">
+  var R = +prompt('R')
+  var M = +prompt('M')
+  var Y = +prompt('Y')
+  var count = 0
+  while (count < Y) {
+    M = M * (1 + R / 100)
+    count = count + 1
+  }
+  console.log(Math.trunc(M))
+</script>
+
+
+
+<script id="ch0105/16">
+  var N = +prompt('N')
+  var K = +prompt('K')
+  var s1 = 0
+  var s2 = 200
+  var y = 1
+  while (s1 < s2) {
+    s1 = N * y
+    s2 = s2 * (1 + (K / 100))
+    y = y + 1
+  }
+  console.log(y)
+</script>
+
