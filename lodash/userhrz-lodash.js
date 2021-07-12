@@ -1,0 +1,1 @@
+var foobar = {chunk: function(){}}
