@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    span {
+      width: 4px;
+      height: 4px;
+      position: absolute;
+      background-color: red;
+    }
+    img {
+      width: 26px;
+      height: 26px;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script>
+    var dotnum = 1
+    var body = document.querySelector('body')
+    document.addEventListener('mousemove', function (e) {
+      // var dot = document.createElement('span')  //创建span结点
+      // dot.classList.add('dot')  //给span结点赋类名
+      // dot.style.left = e.pageX - 2 + "px"
+      // dot.style.top = e.pageY - 2 + "px"
+
+      var imgm = document.createElement('img')  //创建img结点
+      // imgm.src="https://img.tukuppt.com/ad_preview/00/06/80/YvBXsbozuC.jpg!/fw/260"
+      // imgm.src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.51yuansu.com%2Fpic2%2Fcover%2F00%2F42%2F40%2F58138a249cc3f_610.jpg&refer=http%3A%2F%2Fpic.51yuansu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631419421&t=4996405713332b8f66bd66d249f19e6e"
+      imgm.src="./image/aero_arrow_l.png"
+      imgm.classList.add('img')  //给img结点赋类名
+      imgm.style.left = e.pageX - 2 + "px"
+      imgm.style.top = e.pageY - 2 + "px"
+
+      // requestAnimationFrame(function shadow() {
+      //   document.body.append(dot)   //打点,加span
+      //   dot.setAttribute('dotnumber', dotnum)
+      //   dotnum++
+      //   if (dotnum > 10) {
+      //     dotnum--
+      //     body.removeChild(body.firstElementChild)
+      //   }
+      // })
+
+      requestAnimationFrame(function shadow() {
+        document.body.append(imgm)   //打点,加img
+        imgm.setAttribute('dotnumber', dotnum)
+        dotnum++
+        if (dotnum > 7) {
+          dotnum--
+          body.removeChild(body.firstElementChild)
+        }
+      })
+    })
+    dotnum = body.firstElementChild.getAttribute('dotnumber')
+    setInterval(function() {
+      if (body.childElementCount > 0) {
+        body.removeChild(body.firstElementChild)
+        dotnum--
+        // console.log(dotnum)
+      }
+      }, 30)
+      
+  </script>
+</body>
+
+</html>
