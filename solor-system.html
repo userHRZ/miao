@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* * {background-color: rgba(0,0,0,0.08);box-shadow:inset 0 0 1px red;} */
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+    }
+
+    #sun,
+    #earth,
+    #moon {
+      position: absolute;
+      border-radius: 99999px;
+    }
+
+    #sun {
+      background-color: #f00;
+      width: 100px;
+      height: 100px;
+    }
+
+    #earth {
+      background-color: blue;
+      width: 50px;
+      height: 50px;
+    }
+
+    #moon {
+      background-color: gray;
+      width: 20px;
+      height: 20px;
+    }
+
+    .drawdot {
+      width: 2px;
+      height: 2px;
+      background-color: #00aeff;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="sun"></div>
+  <div id="earth"></div>
+  <div id="moon"></div>
+  <div id="box"></div>
+
+
+  <script>
+    var sun = document.querySelector('#sun')
+    var earth = document.querySelector('#earth')
+    var moon = document.querySelector('#moon')
+    var angle1 = 0
+    var angle2 = 0
+    var angle3 = 0
+    var pi = Math.ceil(Math.PI*100)
+    function appenddot(n) {
+      for (var i = 0; i < 2 * pi; i ++) {
+        var dot = document.createElement('div')
+        dot.setAttribute('id', 'dot' + n + i)
+        dot.classList.add('drawdot')
+        document.body.append(dot)
+      }
+    }
+    function circle(r, x, y, n) {
+      for (var i = 0; i < 2 * pi; i ++) {
+        var x0 = Math.cos(i) * r + x
+        var y0 = Math.sin(i) * r + y
+        document.getElementById('dot' + n + i).style.left = x0 + 'px'
+        document.getElementById('dot' + n + i).style.top = y0 + 'px'
+      }
+    }
+    appenddot(1)
+    appenddot(2)
+    appenddot(3)
+    requestAnimationFrame(function move(time) {
+
+
+      angle1 = time * 0.0005
+      angle2 = time * 0.001
+      angle3 = time * 0.002
+
+      var x1 = Math.cos(angle1) * 200 + 300 - 50
+      var y1 = Math.sin(angle1) * 200 + 300 - 50
+      sun.style.left = x1 + 'px'
+      sun.style.top = y1 + 'px'
+      circle(200, 300, 300, 1)
+
+      var x2 = Math.cos(angle2) * 100 + x1 + 50 - 25
+      var y2 = Math.sin(angle2) * 100 + y1 + 50 - 25
+      earth.style.left = x2 + 'px'
+      earth.style.top = y2 + 'px'
+      circle(100, x1+50, y1+50, 2)
+
+
+      var x3 = Math.cos(angle3) * 50 + x2 +25 -10
+      var y3 = Math.sin(angle3) * 50 + y2 +25 -10
+      moon.style.left = x3 + 'px'
+      moon.style.top = y3 + 'px'
+      circle(50, x2+25, y2+25, 3)
+
+
+      requestAnimationFrame(move)
+    })
+
+  </script>
+</body>
+
+</html>
