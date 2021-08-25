@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      user-select: none;
+      box-sizing: border-box;
+    }
+
+    button {
+      position: absolute;
+      z-index: 2147483647;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="blue" class="cube" style="top: 0px  ;left: 0px;z-index:0;background-color: blue;"></div>
+  <div id="green" class="cube" style="top: 20px ;left: 0px;z-index:0;background-color: green;"></div>
+  <div id="red" class="cube" style="top: 40px ;left: 0px;z-index:0;background-color: red;"></div>
+  <div id="box" style="
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: -100px;
+  background-color: #888;
+  border: 50px solid black;
+  box-sizing: border-box;
+  "></div>
+  <button id="add" onclick="add()">add</button><br>
+  <button id="del" onclick="del()">del</button>
+
+  <script>
+
+
+    var posX = 0
+    var posY = 0
+    var maxZindex = 10
+    var box = document.querySelector('#box')
+
+    document.addEventListener("mousedown", function (et) {
+      var el = et.target
+      if (!el.classList.contains('cube')) { //如果绑的不是方块
+        return
+      }
+      el.style.border = '3px dashed cyan'
+      el.style.boxShadow = 'inset 0 0 50px #00aeff'
+      el.style.zIndex = maxZindex++
+      var pos = mousePos(el) //鼠标在div里的位置
+      function move(e) {
+        posX = e.clientX  //鼠标位置
+        posY = e.clientY
+        var left = e.clientX - pos.x  //鼠标当前坐标减去相对方块坐标,就是方块相对于(0,0)的定位.//相当于鼠标点在方块左上角.
+        var top = e.clientY - pos.y
+
+        if (left < 30) { //方块或鼠标在边界外
+          left = 0
+        }
+        if (left > window.innerWidth - el.offsetWidth - 30) {
+          left = window.innerWidth - el.offsetWidth
+        }
+        if (top < 30) {
+          top = 0
+        }
+        if (top > window.innerHeight - el.offsetHeight - 30) {
+          top = window.innerHeight - el.offsetHeight
+        }
+
+        if (left > box.offsetLeft && left < box.offsetLeft+box.offsetWidth - el.offsetWidth && top > box.offsetTop && top < box.offsetTop + box.offsetHeight - el.offsetHeight) {
+          left = box.offsetLeft + parseInt(box.style.borderWidth)
+          top = box.offsetTop + parseInt(box.style.borderWidth)
+        }
+        
+
+        el.style.left = left + 'px'
+        el.style.top = top + 'px'
+      }
+      document.addEventListener("mousemove", move)
+      window.addEventListener("mouseup", function up() {
+        window.removeEventListener('mouseup', up)
+        document.removeEventListener('mousemove', move)
+        el.style.border = 'none'
+        el.style.boxShadow = 'none'
+      })
+    })
+
+    function mousePos(node) { //鼠标相对于元素位置
+      var box = node.getBoundingClientRect()//返回元素的大小及其相对于视口的位置。
+      return {
+        x: window.event.clientX - box.x,
+        y: window.event.clientY - box.y,
+      }
+    }
+    function add() {
+      var div = document.createElement('div')
+      div.classList.add('cube')
+      colorNum = Math.floor(Math.random() * 16).toString(16) + Math.floor(Math.random() * 16).toString(16) + Math.floor(Math.random() * 16).toString(16) + Math.floor(Math.random() * 16).toString(16) + Math.floor(Math.random() * 16).toString(16) + Math.floor(Math.random() * 16).toString(16)
+      div.setAttribute('id', 'color#' + colorNum)
+      div.style.backgroundColor = '#' + colorNum
+      div.style.left = Math.floor(Math.random() * (window.innerWidth - 100)) + 'px'
+      div.style.top = Math.floor(Math.random() * (window.innerHeight - 100)) + 'px'
+      document.body.append(div)
+    }
+    function del() {
+      if (document.querySelector('.cube')) {
+        document.querySelector('.cube').remove()
+      }
+    }
+
+  </script>
+</body>
+
+</html>
