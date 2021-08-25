@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+    }
+    #red {
+      background-color: #f00;
+    }
+    #blue {
+      background-color: #00f;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div style="top:50px;left:50px;" id="red"></div>
+  <div style="top:50px;left:100px;" id="blue"></div>
+  
+  <script>
+    'use strict'
+    // debugger;
+    var red = document.querySelector('#red')
+    var blue = document.querySelector('#blue')
+
+    var vx = 0
+    var vy = 0
+    var ArrowRight = false
+    var ArrowLeft = false
+    var ArrowUp = false
+    var ArrowDown = false
+    document.addEventListener('keydown', function(e) {
+      // console.log(e)
+      if (e.key == 'ArrowRight') {
+        ArrowRight = true //记录右键状态
+        if (ArrowUp == true || ArrowDown == true) {
+          vx = 1 / Math.SQRT2
+        } else {
+          vx = 1
+        }
+      }
+      if (e.key == 'ArrowLeft') {
+        ArrowLeft = true
+        if (ArrowUp == true || ArrowDown == true) {
+          vx = -(1 / Math.SQRT2)
+        } else {
+          vx = -1
+        }
+      }
+      if (e.key == 'ArrowUp') {
+        ArrowUp = true
+        if (ArrowRight == true || ArrowLeft == true) {
+          vy = -(1 / Math.SQRT2)
+        } else {
+          vy = -1
+        }
+      }
+      if (e.key == 'ArrowDown') {
+        ArrowDown = true
+        if (ArrowRight == true || ArrowLeft == true) {
+          vy = 1 / Math.SQRT2
+        } else {
+          vy = 1
+        }
+      }
+    })
+    document.addEventListener('keyup',function(e) {
+      if (e.key == 'ArrowRight') {  //当右键抬起
+        ArrowRight = false
+        if (ArrowLeft == true) {  //左键未抬起
+          vx = -1
+        } else {  //左右都没按下
+          vx = 0
+        }
+      }
+      if (e.key == 'ArrowLeft') {
+        ArrowLeft = false
+        if (ArrowRight == true) {
+          vx = 1
+        } else {
+          vx = 0
+        }
+      }
+      if (e.key == 'ArrowDown') {
+        ArrowDown = false
+        if (ArrowUp == true) {
+          vy = -1
+        } else {
+          vy = 0
+        }
+      }
+      if (e.key == 'ArrowUp') {
+        ArrowUp = false
+        if (ArrowDown == true) {
+          vy = 1
+        } else {
+          vy = 0
+        }
+      }
+    })
+
+
+    var vx2 = 0
+    var vy2 = 0
+    var a = false
+    var d = false
+    var w = false
+    var s = false
+    document.addEventListener('keydown', function(e) {
+      // console.log(e)
+      if (e.key == 'a') {
+        a = true //记录右键状态
+        if (w == true || s == true) {
+          vx2 = -(1 / Math.SQRT2)
+        } else {
+          vx2 = -1
+        }
+      }
+      if (e.key == 'd') {
+        d = true
+        if (w == true || s == true) {
+          vx2 = 1 / Math.SQRT2
+        } else {
+          vx2 = 1
+        }
+      }
+      if (e.key == 'w') {
+        w = true
+        if (a == true || d == true) {
+          vy2 = -(1 / Math.SQRT2)
+        } else {
+          vy2 = -1
+        }
+      }
+      if (e.key == 's') {
+        s = true
+        if (a == true || d == true) {
+          vy2 = 1 / Math.SQRT2
+        } else {
+          vy2 = 1
+        }
+      }
+    })
+    document.addEventListener('keyup',function(e) {
+      if (e.key == 'd') {  //当右键抬起
+        d = false
+        if (a == true) {  //左键未抬起
+          vx2 = -1
+        } else {  //左右都没按下
+          vx2 = 0
+        }
+      }
+      if (e.key == 'a') {
+        a = false
+        if (d == true) {
+          vx2 = 1
+        } else {
+          vx2 = 0
+        }
+      }
+      if (e.key == 's') {
+        s = false
+        if (w == true) {
+          vy2 = -1
+        } else {
+          vy2 = 0
+        }
+      }
+      if (e.key == 'w') {
+        w = false
+        if (s == true) {
+          vy2 = 1
+        } else {
+          vy2 = 0
+        }
+      }
+    })
+    
+    
+    var redX = parseFloat(red.style.left)
+    var redY = parseFloat(red.style.top)
+    var blueX = parseFloat(blue.style.left)
+    var blueY = parseFloat(blue.style.top)
+    console.log(redX,redY,blueX,blueY,Math.abs(redX - blueX),Math.abs(redY - blueY))
+    if (Math.abs(redX - blueX) <= 50) {
+      if(redX < blueX) {
+        document.addEventListener('keyup',function(e) {
+          if (e.key == 'ArrowRight') {
+            vx = 0
+          }
+          if (e.key == 'a') {
+            vx2 = 0
+          }
+        })
+      }
+      if(redX > blueX) {
+        document.addEventListener('keyup',function(e) {
+          if (e.key == 'ArrowLeft') {
+            vx = 0
+          }
+          if (e.key == 'd') {
+            vx2 = 0
+          }
+        })
+      }
+    }
+    if (Math.abs(redY - blueY) <= 50) {
+      if(redY < blueY) {
+        document.addEventListener('keyup',function(e) {
+          if (e.key == 'ArrowDown') {
+            vy = 0
+          }
+          if (e.key == 'w') {
+            vy2 = 0
+          }
+        })
+      }
+      if(redY > blueY) {
+        document.addEventListener('keyup',function(e) {
+          if (e.key == 'ArrowUp') {
+            vy = 0
+          }
+          if (e.key == 's') {
+            vy2 = 0
+          }
+        })
+      }
+    }
+    
+
+    var lastTime = 0
+    requestAnimationFrame(function move(time) {
+      var timeDif = time - lastTime
+      lastTime = time
+      red.style.left = parseFloat(red.style.left) + vx * timeDif * 0.5 + 'px'
+      red.style.top = parseFloat(red.style.top) + vy * timeDif * 0.5 + 'px'
+      blue.style.left = parseFloat(blue.style.left) + vx2 * timeDif * 0.5 + 'px'
+      blue.style.top = parseFloat(blue.style.top) + vy2 * timeDif * 0.5 + 'px'
+
+      requestAnimationFrame(move)
+    })
+
+  </script>
+</body>
+
+</html>
